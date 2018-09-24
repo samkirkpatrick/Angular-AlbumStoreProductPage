@@ -39,7 +39,7 @@ try {
 }
 
 class AProductService {
-  
+
 }
 
 describe('ProductDescription', () => {
@@ -75,7 +75,7 @@ describe('ProductDescription', () => {
     product_service = providedService;
     mock_backend = mockBackend;
   }));
-  
+
   it(`should use release date data from the albumInfo property in the HTML template @product-description-html-uses-dynamic-albuminfo-releasedate`, async(() => {
     since('The ProductService hasn\'t been created yet.').expect(productServiceExists).toBe(true);
     expect(productDescriptionComponentExists).toBe(true);
@@ -99,7 +99,7 @@ describe('ProductDescription', () => {
     }
     if (htmlString != "") {
       const parser = new DOMParser();
-      const htmlDoc = parser.parseFromString(htmlString, 'text/xml');
+      const htmlDoc = parser.parseFromString(htmlString, 'text/html');
       const re = /{{\s*albumInfo\?\.album\.releaseDate\s*}}/
       since('We\'d like you to query the albumInfo property directly for the release date, and we\'re not seeing that you\'re doing that.').expect(htmlDoc.querySelector('.album-release-date').textContent.match(re)).toEqual(jasmine.any(Array));
     } else {

@@ -39,9 +39,9 @@ try {
 }
 
 class AProductService {
-  
+
 }
-  
+
 describe('ProductDescription', () => {
 
   let product_service;
@@ -99,13 +99,13 @@ describe('ProductDescription', () => {
     }
     if (htmlString != "") {
       const parser = new DOMParser();
-      const htmlDoc = parser.parseFromString(htmlString, 'text/xml');
+      const htmlDoc = parser.parseFromString(htmlString, 'text/html');
       const re = /{{\s*albumInfo\?\.album\.coverImage\s*}}/
       since('We\'d like you to query the albumInfo property directly for the cover image, and we\'re not seeing that you\'re doing that.').expect(htmlDoc.querySelector('img').getAttribute('src').match(re)).toEqual(jasmine.any(Array));
     } else {
       since('We\'d like you to query the albumInfo property directly for the cover image, and we\'re not seeing that you\'re doing that.').expect(0).toBe(1);
     }
-    
+
   }));
 
 });
